@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        rn = Math.floor(Math.random()*100); //ค่าที่ถูกสุ่มมา
+        //document.write(rn)
+        //alert(rn);
+        function guess(){
+            num = document.getElementById('number')
+            hist = document.getElementById('hist')
+            result = document.getElementById('result')
+         //  alert(num.value)
+           hist.innerHTML += num.value +" "
+    
+            if(parseInt(num.value) == rn){
+                result.innerHTML = "ถูกต้อง"
+            }
+            if(parseInt(num.value) < rn){
+                result.innerHTML = "น้อยไป"
+            }
+            if(parseInt(num.value) > rn){
+                result.innerHTML = "มากไป"
+            }
+    
+        }
+        function startOver(){
+            num = document.getElementById('number').value=""
+            hist = document.getElementById('hist').innerHTML=""
+            result = document.getElementById('result').innerHTML=""
+            rn = Math.floor(Math.random()*100);
+          
+        }
+    
+    </script>
+    <style>
+   .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+}
+    </style>
+</head>
+<body align='center' background="pexels-engin-akyurt-1435852.jpg">
+    <br><br><br><br><br><br><br>
+    
+    <b style="color:rgb(9, 113, 173)"><font size="4">Input Your Number</font></b> <br><br>
+    <input type="integer" placeholder="?" id="number">
+    <button onclick="guess()">Guess</button><br><br>
+    <div style="color:rgb(0, 68, 64)" id="hist"></div><br>
+    <div id="result"></div><br>
+    <button class="button" onclick="startOver()">Start Over</button> 
+  
+</body>
+</html>
+
