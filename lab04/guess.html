@@ -37,7 +37,7 @@
     </script>
     <style>
    .button {
-    background-color: #4CAF50; /* Green */
+    
     border: none;
     color: white;
     padding: 10px 25px;
@@ -47,19 +47,44 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
-}
+    }
+    .button2 {
+        border-radius: 12px;
+        font-size: 15px;
+        background-color: #4e408b; 
+    }
+    .button3 {
+        border-radius: 8px;
+        font-size: 14px;
+        background-color: #408b7e; 
+    }
+    .button4 {
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        border-radius: 40px;
+        font-size: 16px;
+        background-color: #80a9b6; 
+        color: rgb(15, 15, 15);
+    }
+
+    body {
+    font-family: "Sofia", sans-serif;
+    font-size: 26px;
+    text-shadow: 3px 3px 3px #5e5fa7;
+    }
     </style>
 </head>
-<body align='center' background="pexels-engin-akyurt-1435852.jpg">
-    <br><br><br><br><br><br><br>
+<body align='center' background="ship.jpg">
+    <br><br><br><br><br>
     
-    <b style="color:rgb(9, 113, 173)"><font size="4">Input Your Number</font></b> <br><br>
-    <input type="integer" placeholder="?" id="number">
-    <button onclick="guess()">Guess</button><br><br>
-    <div style="color:rgb(0, 68, 64)" id="hist"></div><br>
-    <div id="result"></div><br>
-    <button class="button" onclick="startOver()">Start Over</button> 
+    <h1 style="color:rgb(64, 80, 133)"><font size="5">Input Your Number</font></h1> 
+    <input class="button4" type="integer" placeholder="?" id="number">
+    <button class="button button3" onclick="guess()">Guess</button><br><br>
+    <div style="color:rgb(48, 100, 83)" id="hist"></div><br>
+    <div style="color:rgb(45, 79, 85)" id="result"></div><br>
+    <button class="button button2" onclick="startOver()">Start Over</button> 
   
 </body>
 </html>
