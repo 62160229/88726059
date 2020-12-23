@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <script>
+        function inputname(name){
+            div = document.getElementById('fuln');
+            div.innerHTML = "";
+            div.innerHTML += "Hello "+name+" ";
+        }
+    </script>
+</head>
+<body align = "center"background=" coco1.jpg">
+    <br><br><br><br>
+    <p>1.โปรแกรมทักทาย-hello.html</p><br>
+    <input type="text" onkeyup = "inputname(this.value);"><br><br>
+    <div id="fuln"></div>
+</body>
+</html>

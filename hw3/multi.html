@@ -1,0 +1,32 @@
+<html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Multiplication</title>
+   <script language="JavaScript">
+
+    function show(number){
+    number = document.getElementById("number").value;
+    div = document.getElementById("Show");
+    div.innerHTML = "";
+    table = ``
+    for(i = 1; i<=12; i++){
+    table += `<tr> 
+                <td>${number} x ${i} = </td>
+                <td>${number*i}</td>
+             </tr>`
+  }
+  div.innerHTML = table
+ }
+ </script>
+ </head>
+<body align = "center" background=" bbwri.jpg">
+  <br><br><br><br>
+  2.โปรแกรมแสดงสูตรคูณ -multi.html
+<br><br><input type="text" name="number" id="number"  placeholder="สูตรคูณแม่ x">
+<input type="button" value="แสดงสูตรคูณ" onclick="show()"> <br> <br>
+<table align = "center" border="1">
+  <tbody id="Show" ></tbody>
+</table>
+</body>
+</html>

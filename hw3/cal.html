@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+    <script>
+        function calculate(){
+            n1 = document.getElementById('n1');
+            n2 = document.getElementById('n2');
+            sum = document.getElementById('sum');
+            simbol = document.getElementById('simbol');
+            if(parseInt(simbol.value) == 1){
+                sum.innerHTML=parseInt(n1.value) + parseInt(n2.value)
+            }
+            if(parseInt(simbol.value) == 2){
+                sum.innerHTML=parseInt(n1.value) - parseInt(n2.value)
+            }
+            if(parseInt(simbol.value) == 3){
+                sum.innerHTML=parseInt(n1.value) * parseInt(n2.value)
+            }
+            if(parseInt(simbol.value) == 4){
+                sum.innerHTML=parseInt(n1.value) / parseInt(n2.value)
+            }
+        } 
+    </script>
+    <style>
+    </style>
+</head>
+<body align = "center"background=" coco1.jpg">
+    <br><br><br><br>
+    <p style="color:rgb(122, 3, 126)"><font size="8">3.โปรแกรมเครื่องคิดเลข-cal.html</font></p><br>
+    <input type="text" placeholder="ใส่ตัวเลขที่ต้องการ" id="n1">
+    <select name="simbol" id="simbol">
+    <option value="1" >+</option>
+    <option value="2" >-</option>
+    <option value="3" >*</option>
+    <option value="4" >/</option>
+    </select>
+    <input type="text" placeholder="ใส่ตัวเลขที่ต้องการ" id="n2">
+    <button onclick="calculate()"> =</button><br><br>
+    <div id="sum"></div><br>
+  
+</body>
+</html>

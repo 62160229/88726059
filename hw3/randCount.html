@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+
+    <script>
+        function random() {
+            x = document.getElementById('x')
+            result = document.getElementById('result')
+            result.innerHTML = ''
+
+            number = []
+            for (i = 0; i < parseInt(x.value); i++) {
+                rn = Math.floor(Math.random() * 100)
+                number.push(rn)
+            }
+            number.sort((a, b) => a - b)
+            console.log(number)
+            count = 1
+            table = ''
+
+            for (i = 1; i <= number.length; i++) {
+                if (number[i] == number[i - 1]) {
+                    count++
+                }
+                else {
+                    table += `<tr> <td>${number[i - 1]}</td>
+                                   <td>${count}</td>
+                              </tr>`
+                    count = 1
+                }
+            }
+            result.innerHTML = table
+        }
+    </script>
+</head>
+<body align = "center"background=" coco1.jpg">
+    <br><br><br>
+    <p>5.โปรแกรมสุ่มตัวเลข 0-99 -randCount.html</p> 
+    <input type="text" placeholder="ใส่ตัวเลขที่ต้องการ" id="x">
+    <button onclick="random()">สุ่ม</button><br><br>
+    <table border="1" align="center">
+    <tr>
+        <td>ตัวเลข</td>
+        <td>ถูกสุ่ม(ครั้ง)</td>
+    </tr>
+    <tbody id="result"></tbody>
+    </table>
+</body>
+</html>

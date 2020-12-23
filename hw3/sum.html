@@ -1,0 +1,57 @@
+่<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+<script>
+    function sum(){
+          s = document.getElementById('sum').innerHTML=""
+          number1 = document.getElementById('n1');
+          number2 = document.getElementById('n2');
+          s = document.getElementById('sum');
+          var c = 0;
+          
+    for ( let i = parseInt(number1.value);i<=parseInt(number2.value);i++) {
+        c = c+i;
+        s.innerHTML +=i
+        if(i<parseInt(number2.value)){
+            s.innerHTML += "+"
+        }
+        if(i==parseInt(number2.value)){
+            s.innerHTML += "="
+            s.innerHTML += c
+        }
+    }
+}
+</script>
+<style>
+     .button1 {
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #695a90; 
+        color: rgb(0, 0, 0);
+    }
+    .button2 {
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 14px;
+        background-color: #3e46af; 
+        color: rgb(255, 255, 255);
+    }
+</style>
+</head>
+<body align = "center"background="bbwri.jpg">
+    <br><br><br>
+    <p>4.โปรแกรมบวกสะสม-sum.html</p>
+    <input class="button1" type="text" placeholder="ใส่ตัวเลข" id="n1"> -  
+    <input class="button1" type="text" placeholder="ใส่ตัวเลข" id="n2">
+    <button class="button2" onclick="sum()">summary</button><br><br>
+    <div id="sum"></div>
+</body>
+</html>
