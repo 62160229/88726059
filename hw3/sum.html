@@ -10,17 +10,17 @@
           number1 = document.getElementById('n1');
           number2 = document.getElementById('n2');
           s = document.getElementById('sum');
-          var c = 0;
+          var k = 0;
           
     for ( let i = parseInt(number1.value);i<=parseInt(number2.value);i++) {
-        c = c+i;
+        k = k+i;
         s.innerHTML +=i
         if(i<parseInt(number2.value)){
             s.innerHTML += "+"
         }
         if(i==parseInt(number2.value)){
             s.innerHTML += "="
-            s.innerHTML += c
+            s.innerHTML += k
         }
     }
 }
