@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    crossorigin='anonymous'>
+
+    <title>Form Validation</title>
+
+    <script src="validation.js"></script>
+</head>
+<body onload ="document.registform.userid.focus();">
+    <h1>Registration Form</h1>
+    <form method="post" name="registform" onSubmit="return formValidation();">
+        <ul>
+            <li>
+                <label for="userid">User ID:</label>
+                <input type="text" name="userid" size="12"/>
+            </li>
+
+            <li>
+                <label for="passid">Password:</label>
+                <input type="password" name="passid" size="12"/>
+            </li>
+
+            <li>
+                <label for="username">User Name:</label>
+                <input type="text" name="username" size="50"/>
+            </li>
+
+            <li>
+                <label for="address">Address:</label>
+                <input type="text" name="address" size="50"/>
+            </li>
+
+            <li>
+                <label for="country">Country</label>
+                <select name="country">
+                <option selected="" value="Default">(Please select a country)</option>
+                <option value="AF">Afghanistan</option>
+                <option value="AL">Albania</option>
+                <option value="ALG">Algeria</option>
+                <option value="AND">Andorra</option>
+                <option value="ANG">Angola</option>
+            </select>
+            </li>
+
+            <li>
+                <label for="zip">Zip Code:</label>
+                <input type="text" name="zip" />
+            </li>
+
+            <li>
+                <label for="email">Email:</label>
+                <input type="text" name="email" size="50" />
+            </li>
+
+            <li>
+                <label id="gender">Sex:</label>
+                <input type="radio" name="sex" value="Male" />
+                <span>Male</span>
+                <input type="radio" name="sex" value="Female" />
+                <span>Female</span>
+            </li>
+
+            <li>
+                <label>Language:</label>
+                <input type="checkbox" name="en" checked />
+                <span>English</span>
+                <input type="checkbox" name="nonen" value="nonen" />
+                <span>Non English</span>
+            </li>
+
+            <li><input type="submit" name="submit" value="Submit" /></li>
+        </ul>
+    </form>
+
+    <!-- Opyional JavaScript -->
+    <!-- jQuery frist, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--ตอบคำถามต่อไปนี้ 
+    1) event onLoad เกิดขึ้นเมื่อไหร่
+     ตอบ เหตุการณ์ onload เกิดขึ้นเมื่อวัตถุถูกโหลด มักใช้ภายใน<body>เพื่อเรียกใช้สคริปต์เมื่อหน้าเว็บโหลดเนื้อหาทั้งหมดจนสมบูรณ์ 
+         สามารถใช้เพื่อตรวจสอบประเภทเบราว์เซอร์และเวอร์ชันของเบราว์เซอร์ของผู้เยี่ยมชมและโหลดหน้าเว็บเวอร์ชันที่เหมาะสมตามข้อมูล
+
+    2) event onSubmit เกิดขึ้นเมื่อไหร่
+     ตอบ เหตุการณ์ onsubmit เกิดขึ้นเมื่อส่งแบบฟอร์ม
+
+    3) attribute name ของแทก form, input มีไว้เพื่ออะไร
+     ตอบ name เป็นคำสั่งเสริม มีไว้เพื่อกำหนดชื่อของข้อมูลที่ใช้เก็บข้อมูลนั้นๆ
+
+    4) ประโยคคำสั่ง var uid = document.registform.userid; คืออะไร
+     ตอบ การคืนค่าจากข้อมูลที่กรอกในแบบฟอร์มของ userid นำมาเก็บในตัวแปร uid
+
+    5) .focus() คืออะไร
+     ตอบ เป็นการชี้ตำแหน่งไปยังวัตถุที่ต้องการ
+
+    6) regular expression คืออะไร
+        var illegalChars = /\W/
+        illegalChars.test(uid.value)
+        passid.value.search(/[a-zA-Z]+/) == -1
+        uname.value.match(letters)
+     ตอบ regular expression คือ ลำดับของอักขระที่สร้างรูปแบบการค้นหา 
+         เมื่อค้นหาข้อมูลในข้อความสามารถใช้รูปแบบการค้นหานี้เพื่ออธิบายสิ่งที่กำลังค้นหา 
+         อาจเป็นอักขระเดี่ยวหรือรูปแบบที่ซับซ้อนมากขึ้น
+
+    7) ความเข้าใจต่อ code ต่อไปนี้
+        var usex = document.registform.sex;
+        usex.length
+        usex[i].checked
+     ตอบ  var usex = document.registform.sex; คือ การคืนค่าจากข้อมูลที่กรอกของแบบฟอร์ม ที่ชื่อว่า sex นำไปเก็บไว้ในตัวแปรที่ชื่อว่า usex
+        usex.length การส่งกลับความยาวของตัวอักษรที่กรอกของ usex
+        usex[i].checked การคืนค่าตำแหน่งของตัวอักษรที่อยู่ในตัวแปร usex ที่ตรวจสอบแล้ว
+-->
