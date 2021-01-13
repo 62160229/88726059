@@ -5,9 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>firstpage</title>
 </head>
-<body>
+<body bgcolor="#5F9EA0">
+    <div class="w3-content" style="max-width:30%;position:relative">
+
+        <div class="w3-display-container mySlides">
+          <img src="reason.jpg" style="width:100%">
+          <div class="w3-display-bottomleft w3-large w3-container w3-padding-hor-16 w3-black">
+          </div>
+        </div>
+        
+        <div class="w3-display-container mySlides">
+          <img src="bodyslam.jpg" style="width:100%">
+          <div class="w3-display-topright w3-large w3-container w3-padding-hor-16 w3-black">
+          </div>
+        </div>
+        
+        <div class="w3-display-container mySlides">
+          <img src="getsunova.jpg" style="width:100%">
+          <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
+          </div>
+        </div>
+        
+        <a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:45%;left:0" onclick="plusDivs(-1)"><font size="8" style="color:rgb(255, 255, 255)">❮</font></a>
+        <a class="w3-btn-floating w3-hover-dark-grey" style= "position:absolute;top:45%;right:0" onclick="plusDivs(1)"><font size="8" style="color:rgb(255, 255, 255)">❯</font></a>
+        
+        </div>
+        
+        <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+        
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          if (n > x.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = x.length} ;
+          for (i = 0; i < x.length; i++) {
+             x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+
+        var songs = JSON.parse(localStorage.getItem("songs"))
+        if(songs == null){
+            localStorage.setItem("songs",songs)
+            songs = [];
+        }
+
+    function nl2br(str,is_xhtml){
+        var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g,'$1' + breakTag + '$2');
+    }
+        function search(){
+        txt = document.getElementById('search').value;
+        disp = document.getElementById('disp');
+        disp.innerHTML = "";
+        html = "";
+        cnt = 0;
+        for(i = 0;i < songs.length;i++){
+        if(songs[i][0].indexOf(txt) >= 0){
+          cnt++;
+          html += `
+          <div class="card">
+              <div class="card-body">
+              <h4 class="card-title">เพลง ${songs[i][0]}</h4>
+              <h4 class="card-title">ศิลปิน ${songs[i][1]}</h4>
+              <p class="card-text">${nl2br(songs[i][2])}</p>
+              </div>
+          </div>`;
+        }
+    }
+        if(cnt == 0){
+          disp.innerHTML = `
+          <div class="alert alert-danger">
+          <strong>ไม่พบเพลง </strong>${txt}
+          </div>`;
+        }else{
+          document.getElementById("disp").innerHTML = `
+          <div class="alert alert-success">
+            <strong>พบ</strong>${cnt} เพลง
+          </div>`;
+          document.getElementById("disp").innerHTML += html;
+        }
+        return false;
+
+   }
+        </script>
     ค้นหาเพลง <a href="newsong.html">[เพิ่มเพลงใหม่]</a><br><br>
-    <input type="text" placeholder="ชื่อเพลงที่ต้องการค้นหา"><br><br>
-    <button>ค้นหา</button>
+    <form class="form-inline" onsubmit="return search();" autocomplete="off"></form>
+    <input type="text" class="form-control" placeholder="ชื่อเพลงที่ต้องการค้นหา" id="search">
+    <button onclick="search();" class="btn btn-outline-success">ค้นหา</button>
+    </form>
+    
+    <div id="disp"></div>
 </body>
 </html>
