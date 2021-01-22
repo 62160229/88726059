@@ -1,0 +1,22 @@
+#title{
+    background-color: rgb(227, 237, 250);
+    border: 2px solid rgb(175, 180, 219);
+    color: rgb(54, 65, 126);
+}
+
+body {
+    font-size: 23px;
+    color: rgb(173, 226, 233);
+    font-family: 'Kanit', sans-serif;
+}
+
+.button1 {
+    background-color:rgb(65, 119, 182); 
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+  }

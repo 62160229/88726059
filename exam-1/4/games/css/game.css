@@ -1,0 +1,78 @@
+html,
+body {
+    font-family: 'Segoe UI';
+    text-transform: uppercase;
+}
+
+#scene {
+    width: 600px;
+    height: 600px;
+    background-color: rgb(109, 193, 231);
+    overflow: hidden;
+    margin: 16px auto;
+    position: relative;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1), -2px 2px 4px rgba(0, 0, 0, .1);
+}
+
+#tree {
+    position: absolute;
+    display: block;
+    width: 400px;
+    bottom: 80px;
+    left: 100px;
+}
+
+#ground {
+    position: absolute;
+    display: block;
+    width: 900px;
+    bottom: 0;
+}
+
+.orange {
+    position: absolute;
+    top: 225px;
+    left: 120px;
+    width: 80px;
+    height: auto;
+    transition: top .5s ease;
+}
+
+#scoreboard {
+    width: 600px;
+    margin: 4px auto;
+    padding:0;
+    background-color: #a3c5e4;
+}
+
+#scoreboard:after {
+    clear: both;
+    display: block;
+    content: " ";
+}
+
+#scoreboard li {
+    list-style: none;
+    box-sizing: border-box;
+    width: 33%;
+    padding: 4px;
+    text-align: center;
+    float: left;
+}
+
+span {
+    font-weight: bold;
+    color: rgb(46, 46, 158);
+}
+
+
+.button1 {
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #2a6e9b; 
+    color: rgb(0, 0, 0);
+    }
+   

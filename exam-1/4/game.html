@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="games/css/game.css" />
+    <title>Game</title>
+</head>
+
+<body align = 'center' background="sky.jpg">
+
+    <ol  id="scoreboard"><br><br><br>
+        <li>Game Time : <span id="time">30</span></li>
+        <li><button class="button1" onclick="startGame();" id="btn">Play</button></li>
+        <li>Score: <span id="score">0</span></li>
+    </ol>
+
+    <div id="scene">
+        <img id="ground" src="games/sprites/ground.png" />
+        <img id="tree" src="games/sprites/tree.png" />
+        <img style="top: 160px ;left: 140px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 225px ;left: 165px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 130px ;left: 255px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 195px ;left: 255px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 245px ;left: 320px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 170px ;left: 355px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+        <img style="top: 230px ;left: 405px;" onclick="fallDown(this)" class="orange" src="games/sprites/orange.png" />
+    </div>
+    <p style="width: 400px; margin: 0 auto;">Highest score: <span id="high">0</span></p>
+    <script type="text/javascript" src="games/js/GameController.js"></script>
+
+</body>
+
+</html>
