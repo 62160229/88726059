@@ -4,32 +4,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
-  <style>
-body  {
-    background-image: url("");
-}
 
-</style>
-
-<center><font color ="red"><h1>ค้นหาเพลง</h1>
+<center><font color =#000000><h1>ค้นหาเพลง</h1>
 <input type="text" id="kw">
 <select id="typ">
-<option value="1">รายเดือน</option>
-    <option value="2">รายปี</option>
-    <option value="3">ตลอดชีพ</option>
 <?php
-    // connect database 
-    $db_host = "localhost";
-    $db_user = "root";
-    $db_password = "123456";
-    $db_name = "searchsong";
+$db_host = "localhost";
+$db_user = "root";
+$db_password = "123456";
+$db_name = "searchsong";
 
-    $mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
-    $mysqli->set_charset("utf8");
+$mysqli = new mysqli($db_host, $db_user, $db_password, $db_name);
+$mysqli->set_charset("utf8");
+
 
     // check connection error 
     if ($mysqli->connect_errno) {
@@ -41,16 +29,15 @@ body  {
     }
     $sql = "SELECT *
             FROM song
-            WHERE NameSong LIKE '%$kw%' OR Artist_Name LIKE '%$kw%'OR Lyrics LIKE '%$kw%'";
+            WHERE NameSong LIKE '%$kw%' AND Artist_Name LIKE '%$typ%'";
     $result = $mysqli->query($sql);
     while($row = $result->fetch_object()) {
-        echo "<option value='$row->id'>$row->name</option>";
-        
+        echo "<option value='$row->Artist_Name'>$row->Artist_Name</option>";
     }
 
 ?></center></font>
 </select>
-<button onclick="search()"class="btn btn-lg btn-warning">ค้นหา</button>
+<button onclick="search()"class="btn btn-lg btn-success">ค้นหา</button>
 <h5><div id="disp"></div><h5>
 <h3><center><form method="post" action="search.html">
         <input type="submit"class="btn btn-danger"  value="Search">
@@ -72,7 +59,7 @@ body  {
                 } else {
                     html = "";
                     for (i = 0; i < arr.length; i++) {
-                        html += arr[i].NameSong +"<br>"+ arr[i].Artist_Name  +"<br>"+ arr[i].Lyrics+"<br>"+"<br>"+"<br>";
+                        html += arr[i].NameSong +"<br>" + arr[i].Artist_Name + "<br>"+ arr[i].Lyrics+"<br>"+"<br>"+"<br>" ;
                     }
                     document.getElementById('disp').innerHTML = html;
                 }
@@ -83,24 +70,4 @@ body  {
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(parameters);
     }
-    
 </script>
-    
-<div class="container">
-        <img src="https://c.min.ms/t/d/member/c/101/101894/pagegallery/1611571013/16d72144.jpg" class="img-circle" alt="Cinque Terre" width="304" height="320">
-</div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-<!-- <form method="post" action="search.php">
-    <input type="text" name="kw" id="kw">
-    <input type="submit" value="Search">
-</form> -->
