@@ -3,13 +3,7 @@
 
 <center><h2><form method="post" action="main.html">
         <input type="submit" value="Back">
-    </form><h2></center><h2>
-    <style>
-        body{
-            background-image: url("");
-            background-size: cover;
-        }
-        </style>
+    
 
 <?php
     // connect database 
