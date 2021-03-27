@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+</head>
+
+<body bgcolor="#D8BFD8">
+    <div class="container">
+        <table class="table table-condensed" align="center">
+            <tr>
+            <center><img src="image/Logo.jpg" class="img-rounded" alt="Cinque Terre" width="150" height="150"> </th> 
+            <center><font color =#FFFFFF><h1>Welcome to Pet Food<br>Please choose to buy as you like.</h1></font></th>
+            <center><h2><input type="text" id="kw" placeholder="Search.."></th>
+            <button onclick="search()" class="btn btn-primary" >Search</button></h2></center></br></th>
+            <center><h2><form method="post" action="insert.html">
+        <input type="submit" value="Insert" class="btn btn-warning">
+        </form><h2></center>
+        <h2><div class="grid-container font-size large" id="disp"></div></h2>
+    </div></tr>
+</body>
+
+<script>
+    search();
+    function search() {
+        kw = document.getElementById('kw').value;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                arr = JSON.parse(this.responseText);
+                console.log(arr);
+            if (arr.length == 0) {
+                    document.getElementById('disp').innerHTML = "Not found";
+                } else {
+                    html = "";
+                    for (i = 0; i < arr.length; i++) {
+                        html += "<div>"+
+                        "<br>"+ arr[i].nameBrand+"<br>"
+                        +"<br>"+arr[i].detail
+                        +"<br>"+arr[i].price
+                        +"<br><img src='image/"+arr[i].image+ "'height='200' width='220'></center>"
+                        +"</div>";
+                    }
+                    document.getElementById('disp').innerHTML = html;
+                }
+            }
+        }
+        parameters = "kw=" + kw;
+        xmlhttp.open("post", "search.php");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(parameters);
+    }
+</script>
+
+</html>
